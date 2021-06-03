@@ -1,0 +1,314 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /*hack ajustar un tamaño de pantalla si tengo un alto de 100px y un pagin de 20 en general seria 140px pero con esto me ajusta todo para que tome solo los 100px*/
+    scroll-snap-type: y mandatory;
+    /*proximity mandatory son dos efectos...mandatory va bajando por seccion, el otro  tiene que bajar bien de lo contrario lo de vuelve */
+
+}
+
+.servicio,
+.navegacion-principal,
+.formulario {
+    /* este es el efecto de scroll donde los centra y lo para en cada uno de los item que se escoje */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+    /*hack ajustar un tamaño de pantalla si tengo un alto de 100px y un pagin de 20 en general seria 140px pero con esto me ajusta todo para que tome solo los 100px*/
+    box-sizing: inherit;
+}
+
+
+body {
+    font-size: 16px;
+    /*1 rem= 1opx*/
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, #fff 100%);
+    /*colocar un fondo degradado si c escoge top es de abajo hacia arriba , botton es de arriba hacia abajo, luego el color y el porcentaje desde donde inicia, luego c escoje otro color de degradado */
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+
+}
+
+.sombra {
+
+    box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.66);
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.boton {
+    background-color: #0097a7;
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: none;
+
+
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+@media(max-width:768px) {
+    .boton {
+        width: 90%;
+    }
+}
+
+.hero {
+    background-image: url(hero.jpg);
+    background-repeat: none;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenedor-hero {
+    position: absolute;
+    background: rgb(0 0 0 /70%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.contenedor-hero h2,
+.contenedor-hero p {
+    color: #fff;
+}
+
+
+
+
+.titulo span {
+    font-size: 1.5rem;
+}
+
+
+
+.navegacion-principal {
+
+    display: flex;
+    justify-content: space-between;
+
+
+
+}
+
+.navegacion-principal a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+
+
+}
+
+.navegacion-principal a:hover {
+    background: #ffc107;
+    color: black;
+}
+
+.nav-bg {
+    background-color: #0097a7;
+}
+
+@media (max-width:480px) {
+    .navegacion-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* servicios */
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+    /*separacion de columnas */
+}
+
+@media(max-width:768px) {
+    .servicios {
+
+        grid-template-columns: 100%;
+
+    }
+
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio h3 {
+    color: #0097a7;
+    font-weight: normal;
+
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: #ffc107;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+
+/* .servicios{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; divide la pantalla en 3 columnas, automaticamente hace los calculos */
+/*grid-template-columns: repeat(3, 1fr);  divide la pantalla en 3 columas ,hace el calculo automaticamente */
+/* grid-template-columns:  33% 33% 33%; dividi la pantalla en 3 columnas de 33 % para un total del 100% 
+ } */
+
+
+/* contacto formulario */
+
+.formulario {
+    background-color: gray;
+    width: min(60rem, 100%);
+    /*  es una funcion que escoje el valor mas pequeño lo acomoda validando los diferentes tamaños de pantalla */
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #ffc107;
+}
+
+.contenedor-campos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    grid-template-rows: auto auto 20rem;
+
+}
+
+.campo:nth-child(3),
+.campo:nth-child(4) {
+    grid-column: 1 / 3;
+
+}
+
+@media(max-width:768px) {
+    .contenedor-campos {
+        grid-template-rows: auto;
+    }
+
+    .campo:nth-child(1),
+    .campo:nth-child(2) {
+        grid-column: 1 / 3;
+
+    }
+
+}
+
+
+.campo {
+    margin-bottom: 1rem;
+
+}
+
+.campo label {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 00.5rem;
+    display: block;
+
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+@media(max-width:768px) {
+    .enviar {
+        width: auto;
+        justify-content: center;
+    }
+
+}
+
+.campo textarea {
+    height: 18rem;
+}
+
+/* footer */
+
+.footer{
+    text-align: center;
+}
